@@ -3,7 +3,7 @@
 Plugin Name: Pricemesh - Preisvergleich für Wordpress
 Plugin URI: https://www.pricemesh.io/plugins/wordpress/
 Description: Mit diesem Plugin ist es möglich Wordpress um einen eigenen Preisvergleich zu erweitern.
-Version: 0.1
+Version: 1.0
 Author: pricemesh
 Author URI: https://www.pricemesh.io
 */
