@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: pricemesh
 Tags: affiliate, commerce, e-commerce, ecommerce, sales, sell, shop, shopping, widgets, wordpress ecommerce, amazon, preisvergleich, ads, advertising
-Requires at least: 3.0
-Tested up to: 3.7
-Stable tag: 1.0
+Requires at least: 3.4
+Tested up to: 3.8
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,21 +22,21 @@ Partnerprogramme mit pricemesh verbunden werden. Die Vergütung der Provisionen 
 
 Zum ausprobieren des Plugins ist bereits ein Demo Token hinterlegt.
 
-Demo Seiten:
+**Demo Seiten**
 
 *   [Nach der Headline](http://mac.pricemesh.io/de/content.html)
 *   [Als TAB](http://games.pricemesh.io/de/tabs.html)
 *   [Im Contentbereich](http://games.pricemesh.io/de/content.html)
 *   [In der Sidebar](http://mac.pricemesh.io/de/sidebar.html)
 
-Features:
+**Features**
 
 *   Preisvergleich innerhalb des Content oder als Widget in der Sidebar
 *   Fügt sich in jedes Template ein
 *   Keine teuren Themes, oder custom Templates erforderlich
 *   Einfach zu installieren und einzurichten
 
-Unterstützte Affiliate-Netzwerke und Partnerprogramme:
+**Unterstützte Affiliate-Netzwerke und Partnerprogramme**
 
 *   Affili.net
 *   Amazon
@@ -46,7 +46,7 @@ Unterstützte Affiliate-Netzwerke und Partnerprogramme:
 *   eBay Commerce Network (shopping.com)
 *   Zanox
 
-Provisionsmodell:
+**Provisionsmodell**
 
 Das Plugin und der Account auf pricemesh.io sind kostenlos. Alle erzielten Provisionen Sales und ggf. Klicks werden weiterhin direkt über die Affiliate Netzwerke abgerechnet und ausgezahlt. Bei maximal 15% der eingehenden Klicks werden diese zu gunsten von pricemesh.io vergütet (Klickbeteiligung).
 
@@ -71,6 +71,15 @@ Weitere Informationen zum Plugin und eine Kurzeinleitung finden Sie auf der [Plu
 4. Beispielseite mit dem Preisvergleich nach der Headline
 
 == Changelog ==
+
+= 1.2 =
+* Es ist nun nicht mehr nötig umständlich nach Barcodes auf verschiedenen Seiten zu suchen. Mit der Produktsuche können nun alle Händler zu denen eine Partnerschaft besteht durchsucht werden.
+* Pricemesh beitet nun volle Zanox Unterstützung.
+* Das Konfigurationsmenü ist von der Hauptseite verschwunden und befindet sich nun im Wordpress Submenü.
+* Zahlreiche kleine Bugfixes
+
+= 1.1 =
+* Nutzer von WPRobot mit der Amazon Erweiterung können nun Barcodes automatisch aus WPRobot extrahieren.
 
 = 1.0 =
 * Erster Release
