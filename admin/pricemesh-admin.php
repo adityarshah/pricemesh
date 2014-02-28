@@ -252,7 +252,8 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.0.0
      */
     public function settings_auth_token_callback(){
-        $setting = self::get_pricemesh_settings()["token"];
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["token"];
         $name = "pricemesh_option_token";
         echo "<input type='text' name='$name' id='$name' value='$setting' class='regular-text'/>";
         if(strpos($setting, "demo") === 0){
@@ -265,7 +266,8 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.1.0
      */
     public function settings_auth_secret_callback(){
-        $setting = self::get_pricemesh_settings()["secret"];
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["secret"];
         echo "<input type='text' name='pricemesh_option_secret' value='$setting' class='regular-text'/>";
         if(empty($setting)){
             echo "<p class='description'>".__("Um die Suchfunktion zu nutzen, tragen Sie bitte das Secret ein.", $this->plugin_slug)."</p>";
@@ -285,7 +287,8 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.0.0
      */
     public function settings_basic_country_callback(){
-        $setting = self::get_pricemesh_settings()["country"];
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["country"];
         $available_countries = array("de");
 
         echo "<select name='pricemesh_option_country'>";
@@ -311,7 +314,8 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.0.1
      */
     public function settings_3rd_party_wp_robot_callback(){
-        $setting = self::get_pricemesh_settings()["wp_robot_integration"];
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["wp_robot_integration"];
         if($this->is_wp_robot_installed()){
             $checked = checked('1', $setting);
             echo "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' $checked/>";
