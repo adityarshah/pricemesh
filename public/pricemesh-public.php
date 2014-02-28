@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.1.0';
+	const VERSION = '1.2.1';
 
 	/**
 	 * @since    1.0.0
@@ -347,9 +347,11 @@ class PricemeshPublic extends PricemeshBase{
         //get this posts content and extract the asin from the shortcode
         $post = $GLOBALS['post']->post_content;
         $post_id = $GLOBALS['post']->ID;
+
         if(strpos($post, "[wprama")){
             //get current pids for this post
-            $current_pids = self::get_pricemesh_settings()["pids"];
+            $settings = self::get_pricemesh_settings();
+            $current_pids = $settings["pids"];
 
             //extract the ASIN from WPRobot
             preg_match('/asin="\w+"/',$post, $pids);
