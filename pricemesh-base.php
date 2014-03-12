@@ -18,6 +18,15 @@ class PricemeshBase {
             "secret" => get_option("pricemesh_option_secret", ""),
             "token" => get_option("pricemesh_option_token", "demo-abcde-demo-12345-demo-abcde1234"),
             "country" => get_option("pricemesh_option_country", "de"),
+            "initial_items" => get_option("pricemesh_option_initial_items", "5"),
+            "disclaimer" => get_option("pricemesh_option_disclaimer", "off"),
+            "stock" => get_option("pricemesh_option_stock", "on"),
+            "duplicates" => get_option("pricemesh_option_duplicates", "all"),
+            "display" => get_option("pricemesh_option_display", "always"),
+            "stylesheet" => get_option("pricemesh_option_stylesheet", ""),
+            "theme" => get_option("pricemesh_option_theme", "basic"),
+            "debug" => get_option("pricemesh_option_debug", "off"),
+
             "wp_robot_integration" => get_option("pricemesh_option_wp_robot_integration", 0),
         );
     }
