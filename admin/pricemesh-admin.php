@@ -214,6 +214,97 @@ class PricemeshAdmin extends PricemeshBase{
         );
         register_setting($group, $option);
 
+        //debug
+        $option = "pricemesh_option_debug";
+        $option_name = "Hinweise und Warnungen anzeigen";
+        $option_callback = "settings_basic_debug_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //-----------------------------------------------------------------
+        // Styling Section
+        //-----------------------------------------------------------------
+        $section = "pricemesh_section_styling";
+        $section_name = "Design";
+        $section_callback = "settings_section_styling_callback";
+        add_settings_section(
+            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+        );
+
+        //theme
+        $option = "pricemesh_option_theme";
+        $option_name = "Theme";
+        $option_callback = "settings_styling_theme_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //stylesheet
+        $option = "pricemesh_option_stylesheet";
+        $option_name = "Stylesheet";
+        $option_callback = "settings_styling_stylesheet_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //-----------------------------------------------------------------
+        // Config Section
+        //-----------------------------------------------------------------
+        $section = "pricemesh_section_config";
+        $section_name = "Konfiguration";
+        $section_callback = "settings_section_config_callback";
+        add_settings_section(
+            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+        );
+
+        //initial_items
+        $option = "pricemesh_option_initial_items";
+        $option_name = "Angezeigte Produkte";
+        $option_callback = "settings_config_initial_items_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //disclaimer
+        $option = "pricemesh_option_disclaimer";
+        $option_name = "Disclaimer";
+        $option_callback = "settings_config_disclaimer_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //stock
+        $option = "pricemesh_option_stock";
+        $option_name = "Versandinfo zeigen";
+        $option_callback = "settings_config_stock_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //duplicates
+        $option = "pricemesh_option_duplicates";
+        $option_name = "Duplikate filtern";
+        $option_callback = "settings_config_duplicates_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //display
+        $option = "pricemesh_option_display";
+        $option_name = "Anzeige";
+        $option_callback = "settings_config_display_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
 
         //-----------------------------------------------------------------
         // 3rd Party Integration
@@ -270,7 +361,7 @@ class PricemeshAdmin extends PricemeshBase{
         $setting = $opts["secret"];
         echo "<input type='text' name='pricemesh_option_secret' value='$setting' class='regular-text'/>";
         if(empty($setting)){
-            echo "<p class='description'>".__("Um die Suchfunktion zu nutzen, tragen Sie bitte das Secret ein.", $this->plugin_slug)."</p>";
+            echo "<p class='description'>".__("Um die Suchfunktion zu nutzen, tragen Sie bitte den Secret Key ein.", $this->plugin_slug)."</p>";
         }
     }
 
@@ -300,6 +391,160 @@ class PricemeshAdmin extends PricemeshBase{
             }
         }
     }
+
+    /**
+     * debug Callback
+     * @since    1.3.0
+     */
+    public function settings_basic_debug_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["debug"];
+        if($setting == "on"){
+            echo '<input type="checkbox" name="pricemesh_option_debug" value="on" checked>';
+        }else{
+            echo '<input type="checkbox" name="pricemesh_option_debug" value="on">';
+        }
+    }
+
+    /**
+     * styling section Callback
+     * @since    1.3.0
+     */
+    public function settings_section_styling_callback(){
+
+    }
+
+    /**
+     * stylesheet Callback
+     * @since    1.3.0
+     */
+    public function settings_styling_stylesheet_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["stylesheet"];
+        echo "<input maxlength='200' type='text' name='pricemesh_option_stylesheet' value='$setting' class='regular-text'/>";
+
+    }
+
+    /**
+     * theme Callback
+     * @since    1.3.0
+     */
+    public function settings_styling_theme_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["theme"];
+
+        $options = array("basic" => __("Standard"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_theme' value='$value' $checked>$string</label></p>";
+        }
+
+    }
+
+    /**
+     * config section Callback
+     * @since    1.3.0
+     */
+    public function settings_section_config_callback(){
+    }
+
+    /**
+     * initial_items Callback
+     * @since    1.3.0
+     */
+    public function settings_config_initial_items_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["initial_items"];
+        $available_items = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+
+        echo "<select name='pricemesh_option_initial_items'>";
+        foreach($available_items as $items){
+            if($items == $setting){
+                echo "<option selected>$items</option>";
+            }else{
+                echo "<option>$items</option>";
+            }
+        }
+        echo "</select>";
+
+    }
+
+    /**
+     * disclaimer Callback
+     * @since    1.3.0
+     */
+    public function settings_config_disclaimer_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["disclaimer"];
+        $options = array("off" => __("Nicht anzeigen"), "top" => __("Oberhalb des Preisvergleichs"), "bottom" => __("Unterhalb des Preisvergleichs"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_disclaimer' value='$value' $checked>$string</label></p>";
+        }
+    }
+
+    /**
+     * stock Callback
+     * @since    1.3.0
+     */
+    public function settings_config_stock_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["stock"];
+        if($setting == "on"){
+            echo '<input type="checkbox" name="pricemesh_option_stock" value="on" checked>';
+        }else{
+            echo '<input type="checkbox" name="pricemesh_option_stock" value="on">';
+        }
+
+
+    }
+
+    /**
+     * duplicates Callback
+     * @since    1.3.0
+     */
+    public function settings_config_duplicates_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["duplicates"];
+        $options = array("off" => _("Nicht filtern"), "all" => _("Alle duplikate filtern (Händler darf nur einmal vorkommen)"), "same-price" => _("Bei gleichem Preis filtern (Händler darf nur einmal pro Preis vorkommen)"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_duplicates' value='$value' $checked>$string<br></label></p>";
+        }
+
+    }
+
+    /**
+     * display Callback
+     * @since    1.3.0
+     */
+    public function settings_config_display_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["display"];
+        $options = array("always" => __("Preisvergleich immer anzeigen"), "has-products" => __("Preisvergleich nur anzeigen, wenn Produkte gefunden werden"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_display' value='$value' $checked>$string</label></p>";
+        }
+    }
+
+
 
     /**
      * 3rd party section Callback

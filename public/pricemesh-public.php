@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.2.2';
+	const VERSION = '1.3';
 
 	/**
 	 * @since    1.0.0
@@ -380,19 +380,23 @@ class PricemeshPublic extends PricemeshBase{
     public function inject_js(){
         if($this->is_injection_needed()){
             $opts = self::get_pricemesh_settings();
-            if(current_user_can('edit_post', get_post_meta($GLOBALS['post']->ID))){
-                $debug = "true";
+            if(current_user_can('edit_post', get_post_meta($GLOBALS['post']->ID)) && $opts["debug"]){
+                $debug = "on";
             }else{
-                $debug = "false";
+                $debug = "off";
             }
             echo "<script type='text/javascript'>
                 var pricemesh_token = '".$opts["token"]."';
                 var pricemesh_country = '".$opts["country"]."';
                 var pricemesh_pids = '".$opts["pids"]."';
-                var pricemesh_debug = $debug;
-                var pricemesh_initialItems = 5;
+                var pricemesh_debug = '$debug';
+                var pricemesh_initialitems = '".$opts['initial_items']."';
+                var pricemesh_disclaimer = '".$opts["disclaimer"]."';
+                var pricemesh_stock = '".$opts["stock"]."';
+                var pricemesh_duplicates = '".$opts["duplicates"]."';
+                var pricemesh_stylesheet = '".$opts["stylesheet"]."';
                 var pricemesh_load = true;
-                var pricemesh_is_wp = true;
+                var pricemesh_plugin = 'wp';
                 (function() {
                     var pricemesh = document.createElement('script'); pricemesh.type = 'text/javascript'; pricemesh.async = true;
                     pricemesh.src = 'https://www.pricemesh.io/static/external/js/pricemesh.min.js?v=".self::VERSION."';
