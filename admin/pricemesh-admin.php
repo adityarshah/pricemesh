@@ -97,8 +97,7 @@ class PricemeshAdmin extends PricemeshBase{
 	 * @return    null    Return early if no settings page is registered.
 	 */
 	public function enqueue_admin_styles() {
-
-        if($this->is_on_post_screen()){
+        if($this->is_on_supported_screen()){
             wp_enqueue_style( $this->plugin_slug .'pm-metabox-styles', plugins_url('assets/css/metabox.css', __FILE__ ), array(), PricemeshPublic::VERSION );
         }
 
@@ -122,7 +121,7 @@ class PricemeshAdmin extends PricemeshBase{
 	 */
 	public function enqueue_admin_scripts(){
 
-        if($this->is_on_post_screen()){
+        if($this->is_on_supported_screen()){
             wp_enqueue_script($this->plugin_slug.'pm-handlebars', plugins_url('assets/js/handlebars-v1.3.0.js', __FILE__ ), array('jquery'), PricemeshPublic::VERSION );
             wp_enqueue_script($this->plugin_slug.'pm-metabox', plugins_url('assets/js/metabox.js', __FILE__ ), array('jquery'), PricemeshPublic::VERSION );
             wp_enqueue_script($this->plugin_slug.'pm-metabox-tabs', plugins_url('assets/js/tabs.js', __FILE__ ), array('jquery'), PricemeshPublic::VERSION );
@@ -321,6 +320,15 @@ class PricemeshAdmin extends PricemeshBase{
         $option = "pricemesh_option_wp_robot_integration";
         $option_name = "WP Robot";
         $option_callback = "settings_3rd_party_wp_robot_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //woocommerce
+        $option = "pricemesh_option_woocommerce_integration";
+        $option_name = "WooCommerce";
+        $option_callback = "settings_3rd_party_woocommerce_callback";
         add_settings_field(
             $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
         );
@@ -551,7 +559,7 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.0.1
      */
     public function settings_section_3rd_party_callback(){
-        echo __("Pricemesh kann auf andere Plugins zugreifen und einen Preisvergleich anzeigen, wenn ein Barcode erkannt wird.", $this->plugin_slug);
+        echo __("Pricemesh kann auf andere Plugins zugreifen und zusätzliche Funktionen freischalten.", $this->plugin_slug);
     }
 
     /**
@@ -562,11 +570,34 @@ class PricemeshAdmin extends PricemeshBase{
         $opts = self::get_pricemesh_settings();
         $setting = $opts["wp_robot_integration"];
         if($this->is_wp_robot_installed()){
-            $checked = checked('1', $setting);
-            echo "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' $checked/>";
+            $checked = checked('1', $setting, false);
+
+            echo "<p class='description'>".
+                    "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' $checked/>".
+                    " ".__("Fügt automatisch importierte ASINs zu dem aktuellen Post hinzu.", $this->plugin_slug).
+                 "</p>";
         }else{
             //echo "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' disabled/>";
             echo "<p class='description'>".__("WPRobot ist nicht installiert", $this->plugin_slug)."</p>";
+        }
+    }
+
+    /**
+     * woocommerce callback
+     * @since    1.3.1
+     */
+    public function settings_3rd_party_woocommerce_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["woocommerce_integration"];
+        if($this->is_woocommerce_installed()){
+            $checked = checked('1', $setting, false);
+            echo "<p class='description'>".
+                   "<input name='pricemesh_option_woocommerce_integration' type='checkbox' value='1' $checked/>".
+                    " ".__("Schaltet die Pricemesh auf Produktseiten frei", $this->plugin_slug).
+                "</p>";
+        }else{
+            //echo "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' disabled/>";
+            echo "<p class='description'>".__("WooCommerce ist nicht installiert", $this->plugin_slug)."</p>";
         }
     }
 
@@ -603,8 +634,22 @@ class PricemeshAdmin extends PricemeshBase{
      */
     function is_on_post_screen(){
         $screen = get_current_screen();
-
         if($screen->base == "post"){
+            return True;
+        }
+        return False;
+    }
+
+    /**
+     * Checks if the current page is one of the supported types: post or page
+     *
+     * @since    1.3.1
+     * @return boolean  true if the current screen is of type post or page
+     */
+    function is_on_supported_screen(){
+        $screen = get_current_screen();
+        var_dump($screen->base);
+        if($screen->base == "post" || $screen->base == "page"){
             return True;
         }
         return False;
@@ -613,6 +658,11 @@ class PricemeshAdmin extends PricemeshBase{
     function meta_box_init(){
         // create our custom meta box
         add_meta_box('pricemesh-meta',__('Pricemesh', 'pricemesh-plugin'), array($this, 'meta_box'),'post','normal','high');
+        add_meta_box('pricemesh-meta',__('Pricemesh', 'pricemesh-plugin'), array($this, 'meta_box'),'page','normal','high');
+        $opts = self::get_pricemesh_settings();
+        if($opts["woocommerce_integration"]){
+            add_meta_box('pricemesh-meta',__('Pricemesh', 'pricemesh-plugin'), array($this, 'meta_box'),'product','normal','high');
+        }
     }
 
     /**
@@ -666,5 +716,23 @@ class PricemeshAdmin extends PricemeshBase{
         }
         return false;
     }
+
+    /**
+     * Checks if WooCommerce is installed
+     * @since    1.0.1
+     * @return boolean  true if WooCommerce is installed. false otherwise
+     */
+    function is_woocommerce_installed(){
+        /***
+         * checks if WooCommerce is installed
+         * Note: only works in the admin area.
+         */
+        if(is_plugin_active("woocommerce/woocommerce.php")){
+            return true;
+        }
+        return false;
+    }
+
+
 
 }?>

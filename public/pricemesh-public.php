@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.3';
+	const VERSION = '1.3.1';
 
 	/**
 	 * @since    1.0.0
@@ -284,7 +284,7 @@ class PricemeshPublic extends PricemeshBase{
 	 * @since    1.0.0
 	 */
     public function add_pricemesh($content){
-        if(is_single() && $this->is_injection_needed()){
+        if((is_single() || is_page()) && $this->is_injection_needed()){
             $injection_point = $this->get_injection_point();
             if($injection_point == PricemeshRender::IN_CONTENT){
                 $content = str_replace("[pricemesh]", $this->inject_html(), $content);
@@ -312,8 +312,7 @@ class PricemeshPublic extends PricemeshBase{
      * @return boolean  true, if injection needed. false otherwise
      */
     public static function is_injection_needed(){
-
-        if(is_single()){
+        if(is_single() || is_page()){
             $opts = self::get_pricemesh_settings();
             if(strlen($opts["pids"])>=8 && strlen($opts["token"])>5){
                 return true;
