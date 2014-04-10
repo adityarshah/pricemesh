@@ -648,7 +648,6 @@ class PricemeshAdmin extends PricemeshBase{
      */
     function is_on_supported_screen(){
         $screen = get_current_screen();
-        var_dump($screen->base);
         if($screen->base == "post" || $screen->base == "page"){
             return True;
         }
