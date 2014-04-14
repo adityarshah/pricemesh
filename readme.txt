@@ -3,7 +3,7 @@ Contributors: pricemesh
 Tags: affiliate, commerce, e-commerce, ecommerce, sales, sell, shop, shopping, widgets, wordpress ecommerce, amazon, preisvergleich, ads, advertising
 Requires at least: 3.4
 Tested up to: 3.8.2
-Stable tag: 1.3.2
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,9 @@ Weitere Informationen zum Plugin und eine Kurzeinleitung finden Sie auf der [Plu
 
 == Changelog ==
 
+= 1.4 =
+* Der Titel des Produktes kann nun optional ein- und ausgeblendet werden
+
 = 1.3.2 =
 * Bugfix
 
@@ -80,7 +83,7 @@ Weitere Informationen zum Plugin und eine Kurzeinleitung finden Sie auf der [Plu
 * Integration von WooCommerce Produktseiten
 
 = 1.3 =
-Es gibt nun zahlreiche Möglichkeiten das Design und das Verhalten des Preisvergleichs anzupassen.
+* Es gibt nun zahlreiche Möglichkeiten das Design und das Verhalten des Preisvergleichs anzupassen.
 * Es können nun eigene Stylesheets eingebunden werden
 * Optional kann ein Disclaimer eingeblendet werden
 * Die Anzahl der angezeigten Ergebnisse kann nun eingestellt werden

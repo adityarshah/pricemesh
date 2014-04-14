@@ -305,6 +305,15 @@ class PricemeshAdmin extends PricemeshBase{
         );
         register_setting($group, $option);
 
+        //title
+        $option = "pricemesh_option_title";
+        $option_name = "Produkttitel";
+        $option_callback = "settings_config_title_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
         //-----------------------------------------------------------------
         // 3rd Party Integration
         //-----------------------------------------------------------------
@@ -549,6 +558,24 @@ class PricemeshAdmin extends PricemeshBase{
                 $checked = "";
             }
             echo "<p><label><input type='radio' name='pricemesh_option_display' value='$value' $checked>$string</label></p>";
+        }
+    }
+
+    /**
+     * display Callback
+     * @since    1.4
+     */
+    public function settings_config_title_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["title"];
+        $options = array("on" => __("Titel anzeigen"), "off" => __("Titel nicht anzeigen"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_title' value='$value' $checked>$string</label></p>";
         }
     }
 
