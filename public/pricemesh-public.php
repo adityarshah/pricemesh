@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.4';
+	const VERSION = '1.4.1';
 
 	/**
 	 * @since    1.0.0

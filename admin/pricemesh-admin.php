@@ -215,7 +215,7 @@ class PricemeshAdmin extends PricemeshBase{
 
         //debug
         $option = "pricemesh_option_debug";
-        $option_name = "Hinweise und Warnungen anzeigen";
+        $option_name = "Hinweise und Warnungen";
         $option_callback = "settings_basic_debug_callback";
         add_settings_field(
             $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
@@ -280,7 +280,7 @@ class PricemeshAdmin extends PricemeshBase{
 
         //stock
         $option = "pricemesh_option_stock";
-        $option_name = "Versandinfo zeigen";
+        $option_name = "Versandinfo";
         $option_callback = "settings_config_stock_callback";
         add_settings_field(
             $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
@@ -416,10 +416,14 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_basic_debug_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["debug"];
-        if($setting == "on"){
-            echo '<input type="checkbox" name="pricemesh_option_debug" value="on" checked>';
-        }else{
-            echo '<input type="checkbox" name="pricemesh_option_debug" value="on">';
+        $options = array("on" => __("Anzeigen"), "off" => __("Nicht anzeigen"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_debug' value='$value' $checked>$string</label></p>";
         }
     }
 
@@ -515,10 +519,14 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_stock_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["stock"];
-        if($setting == "on"){
-            echo '<input type="checkbox" name="pricemesh_option_stock" value="on" checked>';
-        }else{
-            echo '<input type="checkbox" name="pricemesh_option_stock" value="on">';
+        $options = array("on" => __("Versandinfo anzeigen"), "off" => __("Versandinfo nicht anzeigen"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_stock' value='$value' $checked>$string</label></p>";
         }
 
 
@@ -531,7 +539,7 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_duplicates_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["duplicates"];
-        $options = array("off" => _("Nicht filtern"), "all" => _("Alle duplikate filtern (Händler darf nur einmal vorkommen)"), "same-price" => _("Bei gleichem Preis filtern (Händler darf nur einmal pro Preis vorkommen)"));
+        $options = array("off" => _("Nicht filtern"), "all" => _("Alle Duplikate filtern (Händler darf nur einmal vorkommen)"), "same-price" => _("Bei gleichem Preis filtern (Händler darf nur einmal pro Preis vorkommen)"));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
