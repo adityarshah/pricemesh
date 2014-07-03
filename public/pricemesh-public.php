@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.4.1';
+	const VERSION = '1.4.2';
 
 	/**
 	 * @since    1.0.0
@@ -379,10 +379,12 @@ class PricemeshPublic extends PricemeshBase{
     public function inject_js(){
         if($this->is_injection_needed()){
             $opts = self::get_pricemesh_settings();
-            if(current_user_can('edit_post', get_post_meta($GLOBALS['post']->ID)) && $opts["debug"]){
-                $debug = "on";
-            }else{
-                $debug = "off";
+            $debug = "off";
+
+            if(current_user_can('delete_pages')){
+                if($opts["debug"] == "on"){
+                  $debug = "on";
+                }
             }
             echo "<script type='text/javascript'>
                 var pricemesh_token = '".$opts["token"]."';
