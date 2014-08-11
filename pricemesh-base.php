@@ -27,6 +27,7 @@ class PricemeshBase {
             "theme" => get_option("pricemesh_option_theme", "basic"),
             "debug" => get_option("pricemesh_option_debug", "off"),
             "title" => get_option("pricemesh_option_title", "off"),
+            "name" => get_option("pricemesh_option_name", ""),
 
             "wp_robot_integration" => get_option("pricemesh_option_wp_robot_integration", 0),
             "woocommerce_integration" => get_option("pricemesh_option_woocommerce_integration", 0),

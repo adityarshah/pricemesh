@@ -2,8 +2,8 @@
 Contributors: pricemesh
 Tags: affiliate, commerce, e-commerce, ecommerce, sales, sell, shop, shopping, widgets, wordpress ecommerce, amazon, preisvergleich, ads, advertising
 Requires at least: 3.4
-Tested up to: 3.9.1
-Stable tag: 1.4.2
+Tested up to: 3.9.2
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ Zum ausprobieren des Plugins ist bereits ein Demo Token hinterlegt.
 
 *   Preisvergleich innerhalb des Content oder als Widget in der Sidebar
 *   Fügt sich in jedes Template ein
-*   Keine teuren Themes, oder custom Templates erforderlich
+*   Keine teuren Themes oder custom Templates erforderlich
 *   Einfach zu installieren und einzurichten
 
 **Unterstützte Affiliate-Netzwerke und Partnerprogramme**
@@ -59,8 +59,8 @@ Weitere Informationen zum Plugin und eine Kurzeinleitung finden Sie auf der [Plu
 1. `pricemesh.zip` in den Ordner `/wp-content/plugins/` hochladen und dort entpacken
 2. Im Wordpress Adminbereich anmelden
 3. Das Plugin im 'Plugins' Menü aktivieren
-4. Im Adminmenü auf der linken Seite auf `Pricemesh Einstellungen` klicken und eigenes Token eintragen, oder Demo Token übernehmen
-5. ASIN, EAN, oder ISBN des Produktes zu einem Beitrag hinzufügen
+4. Im Adminmenü auf der linken Seite auf `Pricemesh Einstellungen` klicken und eigenes Token eintragen oder Demo Token übernehmen
+5. ASIN, EAN oder ISBN des Produktes zu einem Beitrag hinzufügen
 
 
 == Screenshots ==
@@ -71,6 +71,11 @@ Weitere Informationen zum Plugin und eine Kurzeinleitung finden Sie auf der [Plu
 4. Beispielseite mit dem Preisvergleich nach der Headline
 
 == Changelog ==
+
+= 1.5 =
+* Dark Theme hinzugefügt
+* Titel hinzugefügt
+
 
 = 1.4.2 =
 * Bugfix

@@ -234,7 +234,7 @@ class PricemeshAdmin extends PricemeshBase{
 
         //theme
         $option = "pricemesh_option_theme";
-        $option_name = "Theme";
+        $option_name = "Theme (Pro)";
         $option_callback = "settings_styling_theme_callback";
         add_settings_field(
             $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
@@ -243,7 +243,7 @@ class PricemeshAdmin extends PricemeshBase{
 
         //stylesheet
         $option = "pricemesh_option_stylesheet";
-        $option_name = "Stylesheet";
+        $option_name = "Stylesheet (Pro)";
         $option_callback = "settings_styling_stylesheet_callback";
         add_settings_field(
             $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
@@ -259,6 +259,15 @@ class PricemeshAdmin extends PricemeshBase{
         add_settings_section(
             $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
         );
+
+        //name
+        $option = "pricemesh_option_name";
+        $option_name = "Titel (Pro)";
+        $option_callback = "settings_config_name_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
 
         //initial_items
         $option = "pricemesh_option_initial_items";
@@ -307,12 +316,14 @@ class PricemeshAdmin extends PricemeshBase{
 
         //title
         $option = "pricemesh_option_title";
-        $option_name = "Produkttitel";
+        $option_name = "Produktname";
         $option_callback = "settings_config_title_callback";
         add_settings_field(
             $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
+
+
 
         //-----------------------------------------------------------------
         // 3rd Party Integration
@@ -447,14 +458,25 @@ class PricemeshAdmin extends PricemeshBase{
     }
 
     /**
+     * name Callback
+     * @since    1.5
+     */
+    public function settings_config_name_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["name"];
+        echo "<input maxlength='40' type='text' name='pricemesh_option_name' value='$setting' class='regular-text'/>";
+
+    }
+
+    /**
      * theme Callback
      * @since    1.3.0
      */
     public function settings_styling_theme_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["theme"];
-
-        $options = array("basic" => __("Standard"));
+        $options = array("basic" => __("Standard"), "dark" => __("Dark"));
+        //$options = array("basic" => __("Standard"));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
