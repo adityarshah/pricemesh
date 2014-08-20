@@ -354,6 +354,15 @@ class PricemeshAdmin extends PricemeshBase{
         );
         register_setting($group, $option);
 
+        //custom post types
+        $option = "pricemesh_option_custom_post_types";
+        $option_name = "Custom Post Types";
+        $option_callback = "settings_3rd_party_custom_post_types_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
     }
 
     /**
@@ -658,8 +667,21 @@ class PricemeshAdmin extends PricemeshBase{
         }
     }
 
+    /**
+     * custom post type callback
+     * @since    1.5.1
+     */
+    public function settings_3rd_party_custom_post_types_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["custom_post_types"];
+        $name = "pricemesh_option_custom_post_types";
+        echo "<input type='text' name='$name' id='$name' value='$setting' class='regular-text'/>";
+        echo "<p class='description'>".
+             " ".__("Liste von Custom Post Types bei denen Pricemesh angezeigt werden soll. Format: type1,type2,type3", $this->plugin_slug).
+             "</p>";
+    }
 
-	/**
+    /**
 	 * Render the settings page for this plugin.
 	 *
 	 * @since    1.0.0
@@ -718,6 +740,11 @@ class PricemeshAdmin extends PricemeshBase{
         $opts = self::get_pricemesh_settings();
         if($opts["woocommerce_integration"]){
             add_meta_box('pricemesh-meta',__('Pricemesh', 'pricemesh-plugin'), array($this, 'meta_box'),'product','normal','high');
+        }
+        //add meta boxes to all custom post types
+        $custom_post_types = explode(",", $opts["custom_post_types"]);
+        foreach($custom_post_types as $type){
+            add_meta_box('pricemesh-meta',__('Pricemesh', 'pricemesh-plugin'), array($this, 'meta_box'),$type, 'normal','high');
         }
     }
 

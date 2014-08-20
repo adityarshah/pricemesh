@@ -31,6 +31,7 @@ class PricemeshBase {
 
             "wp_robot_integration" => get_option("pricemesh_option_wp_robot_integration", 0),
             "woocommerce_integration" => get_option("pricemesh_option_woocommerce_integration", 0),
+            "custom_post_types" => get_option("pricemesh_option_custom_post_types", ""),
         );
     }
 

@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.5';
+	const VERSION = '1.5.1';
 
 	/**
 	 * @since    1.0.0
@@ -307,12 +307,24 @@ class PricemeshPublic extends PricemeshBase{
     }
 
     /**
+     * Check if a post is a custom post type.
+     * @param  mixed $post Post object or ID
+     * @return boolean
+     */
+    public static function is_custom_post_type( $post = NULL )
+    {
+        $opts = self::get_pricemesh_settings();
+        $custom_post_types = explode(",", $opts["custom_post_types"]);
+        return is_singular($custom_post_types);
+    }
+
+    /**
      * Checks if Pricemesh should be injected on this page
      * @since    1.0.0
      * @return boolean  true, if injection needed. false otherwise
      */
     public static function is_injection_needed(){
-        if(is_single() || is_page()){
+        if(is_single() || is_page() || self::is_custom_post_type()){
             $opts = self::get_pricemesh_settings();
             if(strlen($opts["pids"])>=8 && strlen($opts["token"])>5){
                 return true;
