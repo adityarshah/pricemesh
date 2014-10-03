@@ -3,7 +3,7 @@ Contributors: pricemesh
 Tags: affiliate, commerce, e-commerce, ecommerce, sales, sell, shop, shopping, widgets, wordpress ecommerce, amazon, preisvergleich, ads, advertising
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,9 @@ Weitere Informationen zum Plugin und eine Kurzeinleitung finden Sie auf der [Plu
 4. Beispielseite mit dem Preisvergleich nach der Headline
 
 == Changelog ==
+
+= 1.5.1 =
+* Das Händlerlogo und der Preis sind nun optional verlinkbar.
 
 = 1.5.1 =
 * Custom Post Types werden nun unterstützt

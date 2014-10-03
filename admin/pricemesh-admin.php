@@ -323,6 +323,15 @@ class PricemeshAdmin extends PricemeshBase{
         );
         register_setting($group, $option);
 
+        //title
+        $option = "pricemesh_option_link_all";
+        $option_name = "Link auf Händler und Preis";
+        $option_callback = "settings_config_link_all_callback";
+        add_settings_field(
+            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
 
 
         //-----------------------------------------------------------------
@@ -444,6 +453,25 @@ class PricemeshAdmin extends PricemeshBase{
                 $checked = "";
             }
             echo "<p><label><input type='radio' name='pricemesh_option_debug' value='$value' $checked>$string</label></p>";
+        }
+    }
+
+
+    /**
+     * link_all Callback
+     * @since    1.5.2
+     */
+    public function settings_config_link_all_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["link_all"];
+        $options = array("on" => __("An"), "off" => __("Aus"));
+        foreach($options as $value => $string) {
+            if($setting == $value){
+                $checked = "checked";
+            }else{
+                $checked = "";
+            }
+            echo "<p><label><input type='radio' name='pricemesh_option_link_all' value='$value' $checked>$string</label></p>";
         }
     }
 

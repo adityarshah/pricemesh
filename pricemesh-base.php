@@ -28,6 +28,7 @@ class PricemeshBase {
             "debug" => get_option("pricemesh_option_debug", "off"),
             "title" => get_option("pricemesh_option_title", "off"),
             "name" => get_option("pricemesh_option_name", ""),
+            "link_all" => get_option("pricemesh_option_link_all", "off"),
 
             "wp_robot_integration" => get_option("pricemesh_option_wp_robot_integration", 0),
             "woocommerce_integration" => get_option("pricemesh_option_woocommerce_integration", 0),
