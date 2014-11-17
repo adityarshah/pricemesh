@@ -11,7 +11,7 @@ Extend WordPress with your own price comparison | WordPress mit einem eigenen Pr
 
 == Description ==
 
-** English **
+**English**
 
 This plugin enables you to extend WordPress with your own price comparison. After the installation a small box will appear with every post in the admin area where UPCs,
 EANs and ASINs can be entered. You can also search for products with the integrated search function and attach them to the current post.
@@ -52,11 +52,13 @@ A demo token is already deposited in the settings, so you can try the plugin. Ho
 
 Plugin and Pricemesh accounts are free. All commissions for sales and clicks are paid out by the affiliate networks you connect with Pricemeh. To use Pricemesh you need a subscription starting at $3.99/month.
 
-** More Info **
+**More Info**
 
 You can find more information on the [plugin page](https://www.pricemesh.io/plugins/wordpress/)
 
-** Deutsch **
+**#####################################**
+
+**Deutsch**
 
 Mit diesem Plugin ist es möglich Wordpress um einen eigenen kostenlosen Preisvergleich zu erweitern und damit Geld zu verdienen. Nach der Installation erscheint im Adminbereich bei jedem Post
 eine kleine Box in der ASINs, EANs und ISBNs eingetragen werden können. Außerdem kann über die integrierte Suchfunktion nach Produkten gesucht werden.
