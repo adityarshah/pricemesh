@@ -146,7 +146,7 @@ class PricemeshAdmin extends PricemeshBase{
 	public function add_plugin_admin_menu() {
 
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__('Pricemesh Einstellungen', $this->plugin_slug),
+			__('Pricemesh Settings', $this->plugin_slug),
 			__('Pricemesh', $this->plugin_slug),
 			'manage_options',
 			$this->plugin_slug,
@@ -168,28 +168,28 @@ class PricemeshAdmin extends PricemeshBase{
         // Token & Secret Section
         //-----------------------------------------------------------------
         $section = "pricemesh_section_auth";
-        $section_name = "Token & Secret";
+        $section_name = __("Token & Secret", $this->plugin_slug);
         $section_callback = "settings_section_auth_callback";
         add_settings_section(
-            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+            $section, $section_name, array($this, $section_callback),$this->plugin_slug
         );
 
         //token
         $option = "pricemesh_option_token";
-        $option_name = "Token";
+        $option_name = __("Token", $this->plugin_slug);
         $option_callback = "settings_auth_token_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
 
         //secret
         $option = "pricemesh_option_secret";
-        $option_name = "Secret Key";
+        $option_name = __("Secret Key", $this->plugin_slug);
         $option_callback = "settings_auth_secret_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
@@ -198,27 +198,27 @@ class PricemeshAdmin extends PricemeshBase{
         // Basic Section
         //-----------------------------------------------------------------
         $section = "pricemesh_section_basic";
-        $section_name = "Grundeinstellungen";
+        $section_name = __("Base Settings", $this->plugin_slug);
         $section_callback = "settings_section_basic_callback";
         add_settings_section(
-            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+            $section, $section_name, array($this, $section_callback),$this->plugin_slug
         );
 
         //country
         $option = "pricemesh_option_country";
-        $option_name = "Land";
+        $option_name = __("Country", $this->plugin_slug);
         $option_callback = "settings_basic_country_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //debug
         $option = "pricemesh_option_debug";
-        $option_name = "Hinweise und Warnungen";
+        $option_name = __("Errors and Warnings", $this->plugin_slug);
         $option_callback = "settings_basic_debug_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
@@ -226,27 +226,27 @@ class PricemeshAdmin extends PricemeshBase{
         // Styling Section
         //-----------------------------------------------------------------
         $section = "pricemesh_section_styling";
-        $section_name = "Design";
+        $section_name = __("Design", $this->plugin_slug);
         $section_callback = "settings_section_styling_callback";
         add_settings_section(
-            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+            $section, $section_name, array($this, $section_callback),$this->plugin_slug
         );
 
         //theme
         $option = "pricemesh_option_theme";
-        $option_name = "Theme (Pro)";
+        $option_name = __("Theme (Pro)", $this->plugin_slug);
         $option_callback = "settings_styling_theme_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //stylesheet
         $option = "pricemesh_option_stylesheet";
-        $option_name = "Stylesheet (Pro)";
+        $option_name = __("Stylesheet (Pro)", $this->plugin_slug);
         $option_callback = "settings_styling_stylesheet_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
@@ -254,81 +254,81 @@ class PricemeshAdmin extends PricemeshBase{
         // Config Section
         //-----------------------------------------------------------------
         $section = "pricemesh_section_config";
-        $section_name = "Konfiguration";
+        $section_name = __("Configuration", $this->plugin_slug);
         $section_callback = "settings_section_config_callback";
         add_settings_section(
-            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+            $section, $section_name, array($this, $section_callback),$this->plugin_slug
         );
 
         //name
         $option = "pricemesh_option_name";
-        $option_name = "Titel (Pro)";
+        $option_name = __("Title (Pro)", $this->plugin_slug);
         $option_callback = "settings_config_name_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //initial_items
         $option = "pricemesh_option_initial_items";
-        $option_name = "Angezeigte Produkte";
+        $option_name = __("Listed Products", $this->plugin_slug);
         $option_callback = "settings_config_initial_items_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //disclaimer
         $option = "pricemesh_option_disclaimer";
-        $option_name = "Disclaimer";
+        $option_name = __("Disclaimer", $this->plugin_slug);
         $option_callback = "settings_config_disclaimer_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //stock
         $option = "pricemesh_option_stock";
-        $option_name = "Versandinfo";
+        $option_name = __("Shipping", $this->plugin_slug);
         $option_callback = "settings_config_stock_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //duplicates
         $option = "pricemesh_option_duplicates";
-        $option_name = "Duplikate filtern";
+        $option_name = __("Duplicates", $this->plugin_slug);
         $option_callback = "settings_config_duplicates_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //display
         $option = "pricemesh_option_display";
-        $option_name = "Anzeige";
+        $option_name = __("Show Pricemesh", $this->plugin_slug);
         $option_callback = "settings_config_display_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //title
         $option = "pricemesh_option_title";
-        $option_name = "Produktname";
+        $option_name = __("Product Title", $this->plugin_slug);
         $option_callback = "settings_config_title_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //title
         $option = "pricemesh_option_link_all";
-        $option_name = "Link auf Händler und Preis";
+        $option_name = __("Link on Shop and Price", $this->plugin_slug);
         $option_callback = "settings_config_link_all_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
@@ -338,37 +338,37 @@ class PricemeshAdmin extends PricemeshBase{
         // 3rd Party Integration
         //-----------------------------------------------------------------
         $section = "pricemesh_section_3rdparty";
-        $section_name = "Third Party Integration";
+        $section_name = __("Third Party Integration", $this->plugin_slug);
         $section_callback = "settings_section_3rd_party_callback";
         add_settings_section(
-            $section, __($section_name, $this->plugin_slug), array($this, $section_callback),$this->plugin_slug
+            $section, $section_name, array($this, $section_callback),$this->plugin_slug
         );
 
 
         //wp robot
         $option = "pricemesh_option_wp_robot_integration";
-        $option_name = "WP Robot";
+        $option_name = __("WP Robot", $this->plugin_slug);
         $option_callback = "settings_3rd_party_wp_robot_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //woocommerce
         $option = "pricemesh_option_woocommerce_integration";
-        $option_name = "WooCommerce";
+        $option_name = __("WooCommerce", $this->plugin_slug);
         $option_callback = "settings_3rd_party_woocommerce_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
         //custom post types
         $option = "pricemesh_option_custom_post_types";
-        $option_name = "Custom Post Types";
+        $option_name = __("Custom Post Types", $this->plugin_slug);
         $option_callback = "settings_3rd_party_custom_post_types_callback";
         add_settings_field(
-            $option, __($option_name, $this->plugin_slug), array($this, $option_callback), $this->plugin_slug, $section
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
         register_setting($group, $option);
 
@@ -379,9 +379,9 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.0.0
      */
     public function settings_section_auth_callback(){
-        echo __("Erstellen Sie einen kostenlosen Account auf <a href='https://www.pricemesh.io' target='_blank'>pricemesh.io</a>".
-             " und tragen Sie Ihr eigenes Token und den Secret Key ein, um Provisionen für Verkäufe zu erhalten und die".
-             " Suchfunktion nutzen zu können", $this->plugin_slug);
+        echo __("Create a account on <a href='https://www.pricemesh.io' target='_blank'>pricemesh.io</a>".
+             " and add your own token and secret key to".
+             " earn sales commission and to use the search function.", $this->plugin_slug);
     }
 
     /**
@@ -394,7 +394,7 @@ class PricemeshAdmin extends PricemeshBase{
         $name = "pricemesh_option_token";
         echo "<input type='text' name='$name' id='$name' value='$setting' class='regular-text'/>";
         if(strpos($setting, "demo") === 0){
-            echo "<p class='description'>".__("Das Demo-Token ist voll funktionsfähig, es können damit jedoch keine Provisionen verdient werden.", $this->plugin_slug)."</p>";
+            echo "<p class='description'>".__("You can't earn commission with the demo token.", $this->plugin_slug)."</p>";
         }
     }
 
@@ -407,7 +407,7 @@ class PricemeshAdmin extends PricemeshBase{
         $setting = $opts["secret"];
         echo "<input type='text' name='pricemesh_option_secret' value='$setting' class='regular-text'/>";
         if(empty($setting)){
-            echo "<p class='description'>".__("Um die Suchfunktion zu nutzen, tragen Sie bitte den Secret Key ein.", $this->plugin_slug)."</p>";
+            echo "<p class='description'>".__("To use the search function, please add your secret key..", $this->plugin_slug)."</p>";
         }
     }
 
@@ -426,7 +426,7 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_basic_country_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["country"];
-        $available_countries = array("de");
+        $available_countries = array("de", "es","fr", "it", "us", "uk");
 
         echo "<select name='pricemesh_option_country'>";
         foreach($available_countries as $country){
@@ -445,7 +445,7 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_basic_debug_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["debug"];
-        $options = array("on" => __("Anzeigen"), "off" => __("Nicht anzeigen"));
+        $options = array("on" => __("Show", $this->plugin_slug), "off" => __("Hide", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -464,7 +464,7 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_link_all_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["link_all"];
-        $options = array("on" => __("An"), "off" => __("Aus"));
+        $options = array("on" => __("On", $this->plugin_slug), "off" => __("Off", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -512,7 +512,7 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_styling_theme_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["theme"];
-        $options = array("basic" => __("Standard"), "dark" => __("Dark"));
+        $options = array("basic" => __("Standard", $this->plugin_slug), "dark" => __("Dark", $this->plugin_slug));
         //$options = array("basic" => __("Standard"));
         foreach($options as $value => $string) {
             if($setting == $value){
@@ -560,7 +560,9 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_disclaimer_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["disclaimer"];
-        $options = array("off" => __("Nicht anzeigen"), "top" => __("Oberhalb des Preisvergleichs"), "bottom" => __("Unterhalb des Preisvergleichs"));
+        $options = array("off" => __("Hide", $this->plugin_slug),
+            "top" => __("Above", $this->plugin_slug),
+            "bottom" => __("Below", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -578,7 +580,8 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_stock_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["stock"];
-        $options = array("on" => __("Versandinfo anzeigen"), "off" => __("Versandinfo nicht anzeigen"));
+        $options = array("on" => __("Show shipping", $this->plugin_slug),
+            "off" => __("Hide shipping", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -598,7 +601,9 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_duplicates_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["duplicates"];
-        $options = array("off" => _("Nicht filtern"), "all" => _("Alle Duplikate filtern (Händler darf nur einmal vorkommen)"), "same-price" => _("Bei gleichem Preis filtern (Händler darf nur einmal pro Preis vorkommen)"));
+        $options = array("off" => __("No filter", $this->plugin_slug),
+            "all" => __("Filter all duplicates (shop only once)", $this->plugin_slug),
+            "same-price" => __("Filter on same price (one shop per price)", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -617,7 +622,8 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_display_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["display"];
-        $options = array("always" => __("Preisvergleich immer anzeigen"), "has-products" => __("Preisvergleich nur anzeigen, wenn Produkte gefunden werden"));
+        $options = array("always" => __("Show always", $this->plugin_slug),
+            "has-products" => __("Hide if no items are found", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -635,7 +641,8 @@ class PricemeshAdmin extends PricemeshBase{
     public function settings_config_title_callback(){
         $opts = self::get_pricemesh_settings();
         $setting = $opts["title"];
-        $options = array("on" => __("Titel anzeigen"), "off" => __("Titel nicht anzeigen"));
+        $options = array("on" => __("Show Title", $this->plugin_slug),
+            "off" => __("Hide Title", $this->plugin_slug));
         foreach($options as $value => $string) {
             if($setting == $value){
                 $checked = "checked";
@@ -653,7 +660,7 @@ class PricemeshAdmin extends PricemeshBase{
      * @since    1.0.1
      */
     public function settings_section_3rd_party_callback(){
-        echo __("Pricemesh kann auf andere Plugins zugreifen und zusätzliche Funktionen freischalten.", $this->plugin_slug);
+        echo __("Pricemesh can access other plugins to add functionality.", $this->plugin_slug);
     }
 
     /**
@@ -668,11 +675,11 @@ class PricemeshAdmin extends PricemeshBase{
 
             echo "<p class='description'>".
                     "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' $checked/>".
-                    " ".__("Fügt automatisch importierte ASINs zu dem aktuellen Post hinzu.", $this->plugin_slug).
+                    " ".__("Adds imported ASINs to the article.", $this->plugin_slug).
                  "</p>";
         }else{
             //echo "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' disabled/>";
-            echo "<p class='description'>".__("WPRobot ist nicht installiert", $this->plugin_slug)."</p>";
+            echo "<p class='description'>".__("WPRobot is not installed", $this->plugin_slug)."</p>";
         }
     }
 
@@ -687,11 +694,11 @@ class PricemeshAdmin extends PricemeshBase{
             $checked = checked('1', $setting, false);
             echo "<p class='description'>".
                    "<input name='pricemesh_option_woocommerce_integration' type='checkbox' value='1' $checked/>".
-                    " ".__("Schaltet die Pricemesh auf Produktseiten frei", $this->plugin_slug).
+                    " ".__("Enables Pricemesh on Product Pages", $this->plugin_slug).
                 "</p>";
         }else{
             //echo "<input name='pricemesh_option_wp_robot_integration' type='checkbox' value='1' disabled/>";
-            echo "<p class='description'>".__("WooCommerce ist nicht installiert", $this->plugin_slug)."</p>";
+            echo "<p class='description'>".__("WooCommerce is not installed", $this->plugin_slug)."</p>";
         }
     }
 
@@ -705,7 +712,7 @@ class PricemeshAdmin extends PricemeshBase{
         $name = "pricemesh_option_custom_post_types";
         echo "<input type='text' name='$name' id='$name' value='$setting' class='regular-text'/>";
         echo "<p class='description'>".
-             " ".__("Liste von Custom Post Types bei denen Pricemesh angezeigt werden soll. Format: type1,type2,type3", $this->plugin_slug).
+             " ".__("List of custom post types Pricemesh should be enabled on. Format type1,type2,type3", $this->plugin_slug).
              "</p>";
     }
 

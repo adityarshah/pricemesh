@@ -3,7 +3,7 @@
     <input type="text" id="pricemesh_new_pid" name="pricemesh_new_pid" class="" autocomplete="off" value="">
     <input type="text" id="pricemesh_pids" name="pricemesh_pids" value="<?php echo $opts["pids"]; ?>"
            style="display:none;visibility: hidden;">
-    <input type="button" class="button tagadd" value="<?php echo __("Hinzufügen", $this->plugin_slug);?>" id="pricemesh_add_new_pid_btn">
+    <input type="button" class="button tagadd" value="<?php echo __("Add", $this->plugin_slug);?>" id="pricemesh_add_new_pid_btn">
 </p>
 
 <div class="tagchecklist" id="pricemesh_pids_field">
@@ -13,9 +13,9 @@
     <?php endforeach; ?>
 </div>
 <hr class="pm-hr"/>
-<h4 class="pm-h4"><?php echo __("Produktsuche", $this->plugin_slug);?></h4>
+<h4 class="pm-h4"><?php echo __("Product Search", $this->plugin_slug);?></h4>
 <?php if(empty($opts["secret"])){
-   ?><?php echo __("Um die Produktsuche zu nutzen, tragen Sie Ihren Secret Key ein. <a href='options-general.php?page=Pricemesh'>Zu den Einstellungen</a>", $this->plugin_slug);?><?php
+   ?><?php echo __("To use product search, add your secret key <a href='options-general.php?page=Pricemesh'>here</a>", $this->plugin_slug);?><?php
 }else{?>
 <div class="pm-container pm-content">
     <div class="pm-row">
@@ -23,11 +23,11 @@
         <input class="hidden" id="pm-id_api_token" name="api_token" type="text" value="<?php echo $opts["secret"]; ?>">
         <input class="hidden" id="pm-id_country" name="country" type="text" value="<?php echo $opts["country"]; ?>">
 
-        <label for="pm-id_query">Suchbegriff</label><br/>
+        <label for="pm-id_query"><?php echo __("Keyword", $this->plugin_slug);?></label><br/>
 
         <input class="input-lg form-control" id="pm-id_query" name="query" type="text" value="">
-        <input type="button" class="button tagadd" value="Suchen" id="pm-searchbutton"> <span id="pm-extended-search"><i
-                id="pm-extended-search-icon" class="pm-icon pm-chevron-right"></i> <?php echo __("Erweiterte Sucheinstellungen", $this->plugin_slug);?></span>
+        <input type="button" class="button tagadd" value="<?php echo __("Search", $this->plugin_slug);?>" id="pm-searchbutton"> <span id="pm-extended-search"><i
+                id="pm-extended-search-icon" class="pm-icon pm-chevron-right"></i> <?php echo __("Extended Setttings", $this->plugin_slug);?></span>
 
     </div>
     <div class="pm-row">
@@ -35,19 +35,19 @@
             <table>
                 <tr>
                     <td>
-                        <label for="pm-id_not_words"><?php echo __("Ohne", $this->plugin_slug);?></label>
+                        <label for="pm-id_not_words"><?php echo __("Without", $this->plugin_slug);?></label>
 
                     </td>
                     <td>
-                        <label for="pm-id_price_min"><?php echo __("Preis min.", $this->plugin_slug);?></label>
+                        <label for="pm-id_price_min"><?php echo __("Min. price", $this->plugin_slug);?></label>
 
                     </td>
                     <td>
-                        <label for="pm-id_price_max"><?php echo __("Preis max.", $this->plugin_slug);?></label>
+                        <label for="pm-id_price_max"><?php echo __("Max. price", $this->plugin_slug);?></label>
 
                     </td>
                     <td>
-                        <label for="pm-id_price_max"><?php echo __("Tiefe Suche", $this->plugin_slug);?></label>
+                        <label for="pm-id_price_max"><?php echo __("Deepsearch", $this->plugin_slug);?></label>
 
                     </td>
                 </tr>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div id="pm-search-error" class="pm-error hidden">
-                <?php echo __("Bei der Anfrage ist ein Fehler aufgetreten: ", $this->plugin_slug);?>
+                <?php echo __("There was an error processing your request: ", $this->plugin_slug);?>
                 <strong id="pm-search-error-message"></strong>
             </div>
             <div id="pm-results" class="hidden">
@@ -151,7 +151,7 @@
                     <li>
                         <a href="#pm-descriptions{{@index}}" data-toggle="tab">
                             <span class="pm-badge pm-badge-info">{{ descriptions.length }}</span> {{ pluralize
-                            descriptions.length '<?php echo __("Text", $this->plugin_slug);?>' '<?php echo __("Texte", $this->plugin_slug);?>'}}
+                            descriptions.length '<?php echo __("Description", $this->plugin_slug);?>' '<?php echo __("Descriptions", $this->plugin_slug);?>'}}
                         </a>
                     </li>
                     {{/if }}
@@ -159,7 +159,7 @@
                     <li>
                         <a href="#pm-images{{@index}}" data-toggle="tab">
                             <span class="pm-badge pm-badge-inverse">{{ images.length }}</span> {{ pluralize
-                            images.length '<?php echo __("Bild", $this->plugin_slug);?>' '<?php echo __("Bilder", $this->plugin_slug);?>'}}
+                            images.length '<?php echo __("Image", $this->plugin_slug);?>' '<?php echo __("Images", $this->plugin_slug);?>'}}
                         </a>
                     </li>
                     {{/if }}
@@ -179,7 +179,7 @@
                         <table class="pm-table pm-table-bordered pm-table-striped">
                             <tr>
                                 <th><?php echo __("Name", $this->plugin_slug);?></th>
-                                <th><?php echo __("Preis", $this->plugin_slug);?></th>
+                                <th><?php echo __("Price", $this->plugin_slug);?></th>
                             </tr>
                             {{#each shops}}
                             <tr>
@@ -205,15 +205,15 @@
                     <div class="pm-tab-pane" id="pm-images{{@index}}">
                         <table class="pm-table pm-table-bordered table-striped">
                             <tr>
-                                <th><?php echo __("Quelle", $this->plugin_slug);?></th>
-                                <th><?php echo __("Bild", $this->plugin_slug);?></th>
+                                <th><?php echo __("Source", $this->plugin_slug);?></th>
+                                <th><?php echo __("Image", $this->plugin_slug);?></th>
                             </tr>
                             {{#each images}}
 
 
                             <tr>
                                 <td>{{ origin }} <a class="pm-btn pm-btn-xs pm-btn-warning" href="{{ image }}"
-                                                    target="_blank"><?php echo __("Quelle", $this->plugin_slug);?></a></td>
+                                                    target="_blank"><?php echo __("Source", $this->plugin_slug);?></a></td>
                                 <td><img src="{{ image }}"/></td>
                             </tr>
 
@@ -227,7 +227,7 @@
 
             <span class="pm-pull-right pm-price">
                             <strong>
-                                <?php echo __("Preis", $this->plugin_slug);?>:
+                                <?php echo __("Price", $this->plugin_slug);?>:
                                 {{#ifEqual price_min price_max }}
                                 {{ price_min }}
                                 {{ else }}
