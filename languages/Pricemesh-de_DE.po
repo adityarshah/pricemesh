@@ -1,0 +1,341 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pricemesh\n"
+"POT-Creation-Date: 2014-11-05 17:10+0100\n"
+"PO-Revision-Date: 2014-11-05 17:10+0100\n"
+"Last-Translator: Jannis Gebauer <ja.geb@pricemesh.io>\n"
+"Language-Team: Pricemesh <info@pricemesh.io>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: /Users/j/dev/pricemesh\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: wordpress\n"
+"X-Poedit-SearchPathExcluded-0: wordpress/svn\n"
+
+#: wordpress/admin/pricemesh-admin.php:149
+msgid "Pricemesh Settings"
+msgstr "Pricemesh Einstellungen"
+
+#: wordpress/admin/pricemesh-admin.php:150
+#: wordpress/admin/pricemesh-admin.php:773
+#: wordpress/admin/pricemesh-admin.php:774
+#: wordpress/admin/pricemesh-admin.php:777
+#: wordpress/admin/pricemesh-admin.php:782
+msgid "Pricemesh"
+msgstr "Pricemesh"
+
+#: wordpress/admin/pricemesh-admin.php:171
+msgid "Token & Secret"
+msgstr "Token & Secret"
+
+#: wordpress/admin/pricemesh-admin.php:179
+msgid "Token"
+msgstr "Token"
+
+#: wordpress/admin/pricemesh-admin.php:189
+msgid "Secret Key"
+msgstr "Secret Key"
+
+#: wordpress/admin/pricemesh-admin.php:201
+msgid "Base Settings"
+msgstr "Grundeinstellungen"
+
+#: wordpress/admin/pricemesh-admin.php:209
+msgid "Country"
+msgstr "Land"
+
+#: wordpress/admin/pricemesh-admin.php:218
+msgid "Errors and Warnings"
+msgstr "Hinweise und Warnungen"
+
+#: wordpress/admin/pricemesh-admin.php:229
+msgid "Design"
+msgstr "Design"
+
+#: wordpress/admin/pricemesh-admin.php:237
+msgid "Theme (Pro)"
+msgstr "Theme (Pro)"
+
+#: wordpress/admin/pricemesh-admin.php:246
+msgid "Stylesheet (Pro)"
+msgstr "Stylesheet (Pro)"
+
+#: wordpress/admin/pricemesh-admin.php:257
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: wordpress/admin/pricemesh-admin.php:265
+msgid "Title (Pro)"
+msgstr "Titel (Pro)"
+
+#: wordpress/admin/pricemesh-admin.php:274
+msgid "Listed Products"
+msgstr "Angezeigte Produkte"
+
+#: wordpress/admin/pricemesh-admin.php:283
+msgid "Disclaimer"
+msgstr "Disclaimer"
+
+#: wordpress/admin/pricemesh-admin.php:292
+msgid "Shipping"
+msgstr "Versandinfo"
+
+#: wordpress/admin/pricemesh-admin.php:301
+msgid "Duplicates"
+msgstr "Duplikate"
+
+#: wordpress/admin/pricemesh-admin.php:310
+msgid "Show Pricemesh"
+msgstr "Pricemesh anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:319
+msgid "Product Title"
+msgstr "Produkttitel"
+
+#: wordpress/admin/pricemesh-admin.php:328
+msgid "Link on Shop and Price"
+msgstr "Link auf Shop und Preis"
+
+#: wordpress/admin/pricemesh-admin.php:341
+msgid "Third Party Integration"
+msgstr "Third Party Integration"
+
+#: wordpress/admin/pricemesh-admin.php:350
+msgid "WP Robot"
+msgstr "WP Robot"
+
+#: wordpress/admin/pricemesh-admin.php:359
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: wordpress/admin/pricemesh-admin.php:368
+msgid "Custom Post Types"
+msgstr "Custom Post Types"
+
+#: wordpress/admin/pricemesh-admin.php:382
+msgid ""
+"Create a account on <a href='https://www.pricemesh.io' "
+"target='_blank'>pricemesh.io</a> and add your own token and secret key to "
+"earn sales commission and to use the search function."
+msgstr ""
+"Erstellen Sie einen Account auf <a href='https://www.pricemesh.io' "
+"target='_blank'>pricemesh.io</a> und tragen Sie Ihr eigenes Token und den "
+"Secret Key ein, um Provisionen für Verkäufe zu erhalten und die Suchfunktion "
+"nutzen zu können"
+
+#: wordpress/admin/pricemesh-admin.php:397
+msgid "You can't earn commission with the demo token."
+msgstr ""
+"Das Demo-Token ist voll funktionsfähig, es können damit jedoch keine "
+"Provisionen verdient werden."
+
+#: wordpress/admin/pricemesh-admin.php:410
+msgid "To use the search function, please add your secret key.."
+msgstr "Um die Suchfunktion zu nutzen, tragen Sie bitte den Secret Key ein."
+
+#: wordpress/admin/pricemesh-admin.php:448
+msgid "Show"
+msgstr "Anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:448
+#: wordpress/admin/pricemesh-admin.php:563
+msgid "Hide"
+msgstr "Nicht anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:467
+msgid "On"
+msgstr "An"
+
+#: wordpress/admin/pricemesh-admin.php:467
+msgid "Off"
+msgstr "Aus"
+
+#: wordpress/admin/pricemesh-admin.php:515
+msgid "Standard"
+msgstr "Standard"
+
+#: wordpress/admin/pricemesh-admin.php:515
+msgid "Dark"
+msgstr "Dark"
+
+#: wordpress/admin/pricemesh-admin.php:564
+msgid "Above"
+msgstr "Oberhalb des Preisvergleichs"
+
+#: wordpress/admin/pricemesh-admin.php:565
+msgid "Below"
+msgstr "Unterhalb des Preisvergleichs"
+
+#: wordpress/admin/pricemesh-admin.php:583
+msgid "Show shipping"
+msgstr "Versandinfo anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:584
+msgid "Hide shipping"
+msgstr "Versandinfo nicht anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:604
+msgid "No filter"
+msgstr "Nicht filtern"
+
+#: wordpress/admin/pricemesh-admin.php:605
+msgid "Filter all duplicates (shop only once)"
+msgstr "Alle Duplikate filtern (Händler darf nur einmal vorkommen)"
+
+#: wordpress/admin/pricemesh-admin.php:606
+msgid "Filter on same price (one shop per price)"
+msgstr ""
+"Bei gleichem Preis filtern (Händler darf nur einmal pro Preis vorkommen)"
+
+#: wordpress/admin/pricemesh-admin.php:625
+msgid "Show always"
+msgstr "Preisvergleich immer anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:626
+msgid "Hide if no items are found"
+msgstr "Preisvergleich nur anzeigen, wenn Produkte gefunden werden"
+
+#: wordpress/admin/pricemesh-admin.php:644
+msgid "Show Title"
+msgstr "Titel anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:645
+msgid "Hide Title"
+msgstr "Titel nicht anzeigen"
+
+#: wordpress/admin/pricemesh-admin.php:663
+msgid "Pricemesh can access other plugins to add functionality."
+msgstr ""
+"Pricemesh kann auf andere Plugins zugreifen und zusätzliche Funktionen "
+"freischalten."
+
+#: wordpress/admin/pricemesh-admin.php:678
+msgid "Adds imported ASINs to the article."
+msgstr "Fügt automatisch importierte ASINs zu dem aktuellen Post hinzu."
+
+#: wordpress/admin/pricemesh-admin.php:682
+msgid "WPRobot is not installed"
+msgstr "WPRobot ist nicht installiert"
+
+#: wordpress/admin/pricemesh-admin.php:697
+msgid "Enables Pricemesh on Product Pages"
+msgstr "Schaltet die Pricemesh auf Produktseiten frei"
+
+#: wordpress/admin/pricemesh-admin.php:701
+msgid "WooCommerce is not installed"
+msgstr "WooCommerce ist nicht installiert"
+
+#: wordpress/admin/pricemesh-admin.php:715
+msgid ""
+"List of custom post types Pricemesh should be enabled on. Format type1,type2,"
+"type3"
+msgstr ""
+"Liste von Custom Post Types bei denen Pricemesh angezeigt werden soll. "
+"Format: type1,type2,type3"
+
+#: wordpress/admin/pricemesh-admin.php:737
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: wordpress/admin/views/admin.php:6
+msgid ""
+"Get an overview of all available settings <a target='_blank' href='https://"
+"www.pricemesh.io/en/help/settings/'>here</a>"
+msgstr ""
+"Eine Übersicht über alle Einstellungen gibt es <a target='_blank' "
+"href='https://www.pricemesh.io/de/hilfe/einstellungen/'>hier</a>"
+
+#: wordpress/admin/views/metabox.php:2 wordpress/admin/views/metabox.php:141
+msgid "Barcodes"
+msgstr "Barcodes"
+
+#: wordpress/admin/views/metabox.php:6
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: wordpress/admin/views/metabox.php:16
+msgid "Product Search"
+msgstr "Produktsuche"
+
+#: wordpress/admin/views/metabox.php:18
+msgid ""
+"To use product search, add your secret key <a href='options-general.php?"
+"page=Pricemesh'>here</a>"
+msgstr "Um die Suchfunktion zu nutzen, tragen Sie bitte den Secret Key ein."
+
+#: wordpress/admin/views/metabox.php:26
+msgid "Keyword"
+msgstr "Suchwort"
+
+#: wordpress/admin/views/metabox.php:29
+msgid "Search"
+msgstr "Suchen"
+
+#: wordpress/admin/views/metabox.php:30
+msgid "Extended Setttings"
+msgstr "Erweiterte Einstellungen"
+
+#: wordpress/admin/views/metabox.php:38
+msgid "Without"
+msgstr "Ohne"
+
+#: wordpress/admin/views/metabox.php:42
+msgid "Min. price"
+msgstr "Preis min."
+
+#: wordpress/admin/views/metabox.php:46
+msgid "Max. price"
+msgstr "Preis max."
+
+#: wordpress/admin/views/metabox.php:50
+msgid "Deepsearch"
+msgstr "Tiefe Suche"
+
+#: wordpress/admin/views/metabox.php:103
+msgid "There was an error processing your request: "
+msgstr "Bei der Anfrage ist ein Fehler aufgetreten: "
+
+#: wordpress/admin/views/metabox.php:141
+msgid "Barcode"
+msgstr "Barcode"
+
+#: wordpress/admin/views/metabox.php:147
+msgid "Shop"
+msgstr "Shop"
+
+#: wordpress/admin/views/metabox.php:147
+msgid "Shops"
+msgstr "Shops"
+
+#: wordpress/admin/views/metabox.php:154
+msgid "Description"
+msgstr "Beschreibung"
+
+#: wordpress/admin/views/metabox.php:154
+msgid "Descriptions"
+msgstr "Beschreibungen"
+
+#: wordpress/admin/views/metabox.php:162 wordpress/admin/views/metabox.php:209
+msgid "Image"
+msgstr "Bild"
+
+#: wordpress/admin/views/metabox.php:162
+msgid "Images"
+msgstr "Bilder"
+
+#: wordpress/admin/views/metabox.php:181
+msgid "Name"
+msgstr "Name"
+
+#: wordpress/admin/views/metabox.php:182 wordpress/admin/views/metabox.php:230
+msgid "Price"
+msgstr "Preis"
+
+#: wordpress/admin/views/metabox.php:208 wordpress/admin/views/metabox.php:216
+msgid "Source"
+msgstr "Quelle"
