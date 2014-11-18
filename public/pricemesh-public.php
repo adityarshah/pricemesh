@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.6';
+	const VERSION = '1.6.1';
 
 	/**
 	 * @since    1.0.0
@@ -255,9 +255,9 @@ class PricemeshPublic extends PricemeshBase{
 
 		$domain = $this->plugin_slug;
 		$locale = apply_filters('plugin_locale', get_locale(), $domain );
-        echo $locale;
-        echo trailingslashit(WP_LANG_DIR).$domain.'/'.$domain.'-'.$locale.'.mo';
-        echo basename(plugin_dir_path(dirname(__FILE__))).'/languages/'.$locale.'.mo';
+        //echo $locale;
+        //echo trailingslashit(WP_LANG_DIR).$domain.'/'.$domain.'-'.$locale.'.mo';
+        //echo basename(plugin_dir_path(dirname(__FILE__))).'/languages/'.$locale.'.mo';
 		load_textdomain($domain, trailingslashit(WP_LANG_DIR).$domain.'/'.$domain.'-'.$locale.'.mo');
 		load_plugin_textdomain($domain, FALSE, basename(plugin_dir_path(dirname(__FILE__))).'/languages/');
 
