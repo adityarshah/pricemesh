@@ -25,10 +25,11 @@ class PricemeshBase {
             "display" => get_option("pricemesh_option_display", "always"),
             "stylesheet" => get_option("pricemesh_option_stylesheet", ""),
             "theme" => get_option("pricemesh_option_theme", "basic"),
-            "debug" => get_option("pricemesh_option_debug", "off"),
+            "debug" => get_option("pricemesh_option_debug", "on"),
             "title" => get_option("pricemesh_option_title", "off"),
             "name" => get_option("pricemesh_option_name", ""),
             "link_all" => get_option("pricemesh_option_link_all", "off"),
+            "link_text" => get_option("pricemesh_option_link_text", ""),
 
             "wp_robot_integration" => get_option("pricemesh_option_wp_robot_integration", 0),
             "woocommerce_integration" => get_option("pricemesh_option_woocommerce_integration", 0),

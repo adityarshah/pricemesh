@@ -323,10 +323,19 @@ class PricemeshAdmin extends PricemeshBase{
         );
         register_setting($group, $option);
 
-        //title
+        //link
         $option = "pricemesh_option_link_all";
         $option_name = __("Link on Shop and Price", $this->plugin_slug);
         $option_callback = "settings_config_link_all_callback";
+        add_settings_field(
+            $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
+        );
+        register_setting($group, $option);
+
+        //link_text
+        $option = "pricemesh_option_link_text";
+        $option_name = __("Link text (Pro)", $this->plugin_slug);
+        $option_callback = "settings_config_link_text_callback";
         add_settings_field(
             $option, $option_name, array($this, $option_callback), $this->plugin_slug, $section
         );
@@ -473,6 +482,16 @@ class PricemeshAdmin extends PricemeshBase{
             }
             echo "<p><label><input type='radio' name='pricemesh_option_link_all' value='$value' $checked>$string</label></p>";
         }
+    }
+
+    /**
+     * link_text Callback
+     * @since    1.6.3
+     */
+    public function settings_config_link_text_callback(){
+        $opts = self::get_pricemesh_settings();
+        $setting = $opts["link_text"];
+        echo "<input maxlength='20' type='text' name='pricemesh_option_link_text' value='$setting' class='regular-text'/>";
     }
 
     /**
@@ -778,6 +797,8 @@ class PricemeshAdmin extends PricemeshBase{
         }
         //add meta boxes to all custom post types
         $custom_post_types = explode(",", $opts["custom_post_types"]);
+        //filter if empty
+        $custom_post_types = array_filter($custom_post_types);
         foreach($custom_post_types as $type){
             add_meta_box('pricemesh-meta',__('Pricemesh', 'pricemesh-plugin'), array($this, 'meta_box'),$type, 'normal','high');
         }
