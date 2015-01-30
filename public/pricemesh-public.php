@@ -21,7 +21,7 @@ class PricemeshPublic extends PricemeshBase{
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.6.3';
+	const VERSION = '1.6.4';
 
 	/**
 	 * @since    1.0.0
@@ -411,6 +411,7 @@ class PricemeshPublic extends PricemeshBase{
                 var pricemesh_duplicates = '".$opts["duplicates"]."';
                 var pricemesh_stylesheet = '".$opts["stylesheet"]."';
                 var pricemesh_title = '".$opts["title"]."';
+                var pricemesh_display = '".$opts["display"]."';
                 var pricemesh_theme = '".$opts["theme"]."';
                 var pricemesh_name = '".$opts["name"]."';
                 var pricemesh_link_all = '".$opts["link_all"]."';
