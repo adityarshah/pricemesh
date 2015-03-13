@@ -121,6 +121,10 @@
 
             is_valid_pid: function(string){
                 /** takes a string and validates it as a PID */
+                //check if the string starts with nid for a network ID
+                if(string.indexOf("nid") == 0){
+                    return true;
+                }
 
                 //If the string is shorter than 10 or longer than 14 chars it can't be a ASIN, EAN or UPC
                 if(string.length < 10 || string.length > 14){
